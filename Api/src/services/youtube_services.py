@@ -26,6 +26,7 @@ class YoutubeService:
             print(f"\n ----- Página {page +1 } ------ ")
 
             search_data = self.client.search_videos(query,  page_token=next_page)
+            print(search_data)
             videos_id = [item["id"]["videoId"] for item in search_data["items"]]
             details = self.client.get_video_details(videos_id)
 
@@ -55,7 +56,7 @@ class YoutubeService:
                     "views": video["statistics"].get("viewCount"),
                     "likes":video["statistics"].get("likeCount"),
                     "comments_count": video["statistics"].get("commentCount"),
-                    "duration": video["contentDetails"]["duration"],
+                    "duration": video.get("contentDetails", {}).get("duration"),
                     "comments": " | ".join(comment_list)
                 }
 

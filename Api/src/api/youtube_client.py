@@ -49,7 +49,7 @@ class YoutubeClient:
         url = f"{BASE_URL}/commentThreads"
 
         params = {
-            "part": "snippet",
+            "part": "snippet, statistics, contentDetails",
             "videoId": video_id,
             "maxResults": 10,
             "order": "relevance",
