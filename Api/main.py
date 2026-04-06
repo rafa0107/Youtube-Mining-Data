@@ -6,7 +6,7 @@ import os
 if __name__ == "__main__":
     service = YoutubeService()
 
-    data = service.collect_videos("Inteligencia Artificial", max_pages=5)
+    data = service.collect_videos("Inteligência Artificial", max_pages=15)
 
     for video in data:
         print(video["title"])

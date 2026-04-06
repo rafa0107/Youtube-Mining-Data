@@ -26,7 +26,6 @@ class YoutubeService:
             print(f"\n ----- Página {page +1 } ------ ")
 
             search_data = self.client.search_videos(query,  page_token=next_page)
-            print(search_data)
             videos_id = [item["id"]["videoId"] for item in search_data["items"]]
             details = self.client.get_video_details(videos_id)
 
@@ -40,7 +39,7 @@ class YoutubeService:
                 try:
                     comments = self.client.get_top_comments(video_id)
                     comment_list = [
-                        c["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
+                        c["snippet"]["topLevelComment"]["snippet"]["textOriginal"]
                         for c in comments.get("items", [])
                     ]
                 except Exception as e:

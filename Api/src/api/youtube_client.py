@@ -6,7 +6,7 @@ class YoutubeClient:
 
     #Camada de acesso à API do Youtube, irá fazer as requisições
     #Define os videos que irei buscar, a quantidade de retorno das buscas e parametros.
-    def search_videos(self, query, max_results=50, page_token=None, published_after=None, published_before=None):
+    def search_videos(self, query, max_results=50, page_token=None, published_after=None, published_before=None, relevance_language="pt", region_code="BR"):
         url = f"{BASE_URL}/search"
 
         params = {
@@ -15,7 +15,9 @@ class YoutubeClient:
             "type": "video",
             "order" : "date",
             "maxResults": max_results,
-            "key": API_KEY
+            "key": API_KEY,
+            "relevanceLanguage": relevance_language,
+            "regionCode": region_code
         }
 
         #Lógica para mudança de página
@@ -49,7 +51,7 @@ class YoutubeClient:
         url = f"{BASE_URL}/commentThreads"
 
         params = {
-            "part": "snippet, statistics, contentDetails",
+            "part": "snippet",
             "videoId": video_id,
             "maxResults": 10,
             "order": "relevance",
