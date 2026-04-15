@@ -17,7 +17,7 @@ df = df.sort_values(by="views", ascending=False).head(100)
 # 3. Criar grafo (estrutura)
 G = nx.Graph()
 
-# adiciona TODOS os vídeos como nós
+# adiciona todos os vídeos como nós
 G.add_nodes_from(df["video_id"])
 
 # Agrupa vídeos por canal
@@ -35,8 +35,6 @@ for channel, group in grouped:
 # 4. Métricas da rede
 print("Número de nós Grafo principal:", G.number_of_nodes())
 print("Número de arestas: Grafo principal", G.number_of_edges())
-
-# Coeficiente de clustering
 print("Coeficiente de clustering médio:", nx.average_clustering(G))
 
 # Centralidades
@@ -45,7 +43,7 @@ eigenvector_centrality = nx.eigenvector_centrality(G)
 
 # 5. Criar subgrafo (Top 50 mais importantes)
 # Seleciona nós com maior centralidade
-top_nodes = sorted(degree_centrality, key=degree_centrality.get, reverse=True)[:50]
+top_nodes = sorted(degree_centrality, key=degree_centrality.get, reverse=True)[:50] # type: ignore
 
 G_small = G.subgraph(top_nodes)
 print("Número de nós:", G_small.number_of_nodes())
@@ -111,7 +109,7 @@ nx.draw_networkx_nodes(
     pos,
     node_size=sizes,
     node_color=colors,
-    cmap=plt.cm.tab20,
+    cmap=plt.cm.tab20, # type: ignore
     vmin=0,
     vmax=len(color_map)-1,
     alpha=0.9
@@ -154,7 +152,7 @@ for comp in components:
 legend_handles = []
 
 for channel, idx in color_map.items():
-    color = plt.cm.tab20(idx / (len(color_map)-1 if len(color_map) > 1 else 1))
+    color = plt.cm.tab20(idx / (len(color_map)-1 if len(color_map) > 1 else 1)) # type: ignore
     patch = mpatches.Patch(color=color, label=channel)
     legend_handles.append(patch)
 
