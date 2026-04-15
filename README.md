@@ -22,6 +22,15 @@ Todos os dados são armazenados em um banco relacional, permitindo consultas est
 
 ---
 
+## 🔍 Análises e Resultados (Estudos de Caso)
+
+Para validar o pipeline de dados, foi realizada uma análise exploratória utilizando técnicas de **Redes Complexas** sobre o ecossistema de vídeos do Estreito de Ormuz.
+
+* **Notebook de Análise:** [Exploração de Grafos e Métricas](./graph_analysis/analysis_report.ipynb)
+* **Relatório Técnico (PDF):** [Análise de Topologia e Disseminação de Conteúdo](https://drive.google.com/file/d/1D6d8h6kJXp0A6Aj7KEshlX1Wy6vgA5Va/view?usp=sharing)
+
+---
+
 ## 🧱 Tecnologias Utilizadas
 
 * Python
