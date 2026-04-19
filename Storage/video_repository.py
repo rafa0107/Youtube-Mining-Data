@@ -1,5 +1,5 @@
 #Dados SQL de videos
-from src.Storage.database import get_connection
+from Storage.database import get_connection
 
 class VideoRepository:
       

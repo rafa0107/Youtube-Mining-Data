@@ -1,5 +1,5 @@
 #Dados SQL de comentarios
-from src.Storage.database import get_connection
+from Storage.database import get_connection
 
 class CommentRepository:
     def save_comment(self, comment_data):
