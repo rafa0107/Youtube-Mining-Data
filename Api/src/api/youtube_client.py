@@ -60,4 +60,14 @@ class YoutubeClient:
 
         response = requests.get(url, params=params)
         return response.json()
+
+    #Buscar a categoria do vídeo
+    def get_categories(self, category_id):
+        url = f"{BASE_URL}/videoCategories"
+        params = {
+            "part": "snippet",
+            "id": category_id,
+            "key": API_KEY
+        }
+        return requests.get(url, params=params).json()
     
