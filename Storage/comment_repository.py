@@ -15,11 +15,10 @@ class CommentRepository:
             conn = get_connection()
             cursor = conn.cursor()
             insert_query = """
-                INSERT IGNORE INTO comments (comment_id, video_id, author_display_name, text_display, published_at, like_count)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                INSERT IGNORE INTO comments (video_id, author_display_name, text_display, published_at, like_count)
+                VALUES (%s, %s, %s, %s, %s)
             """
             cursor.execute(insert_query, (
-                comment_data.get('comment_id'),
                 comment_data.get('video_id'),
                 comment_data.get('author_display_name'),
                 comment_data.get('text_display'),
@@ -28,7 +27,7 @@ class CommentRepository:
             ))
 
             conn.commit()
-            print(f"Comentário '{comment_data.get('comment_id')}' salvo com sucesso.")
+            print(f"Comentário '{comment_data.get('video_id')}' salvo com sucesso.")
 
         except Exception as e:
             print(f"Erro ao salvar comentário: {e}")

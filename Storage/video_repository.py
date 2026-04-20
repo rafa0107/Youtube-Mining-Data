@@ -12,8 +12,8 @@ class VideoRepository:
             conn = get_connection()
             cursor = conn.cursor()
             insert_query = """
-                INSERT IGNORE INTO videos (video_id, title, published_at, channel_id, channel_title)
-                VALUES (%s, %s, %s, %s, %s)
+                INSERT IGNORE INTO videos (video_id, title, published_at, channel_id, channel_title,view_count,like_count,category,comment_count)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
             cursor.execute(insert_query, (
                 video_data.get('video_id'),
@@ -21,8 +21,11 @@ class VideoRepository:
                 video_data.get('published_at'),
                 video_data.get('channel_id'),
                 video_data.get('channel_title')
+                ,video_data.get('view_count'),
+                video_data.get('like_count'),
+                video_data.get('category'),
+                video_data.get('comment_count'),
             ))
-
             conn.commit()
             print(f"Vídeo '{video_data.get('title')}' salvo com sucesso.")
 
