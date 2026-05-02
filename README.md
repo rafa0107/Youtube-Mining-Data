@@ -13,12 +13,12 @@ A aplicação foi desenvolvida com uma arquitetura modular, separando responsabi
 * **Camada de Repositório**: responsável pela persistência dos dados em banco MySQL
 * **Camada de Armazenamento**: configuração de conexão com o banco e inicialização do schema
 
-Atualmente, o sistema coleta:
+O sistema coleta:
 
 * Metadados de vídeos (título, canal, data de publicação, visualizações, likes, etc.)
 * Principais comentários de cada vídeo
 
-Todos os dados são armazenados em um banco relacional, permitindo consultas estruturadas e análises futuras.
+Os dados são processados e armazenados diretamente em um banco relacional MySQL, utilizando procedimentos estruturados de ETL e Views para facilitar as consultas.
 
 ---
 
@@ -31,47 +31,44 @@ Para validar o pipeline de dados, foi realizada uma análise exploratória utili
 
 ---
 
+## 📈 Dashboard e Relatório Interativo
+
+Os dados armazenados no MySQL foram conectados ao Power BI para geração de KPIs, análise de engajamento e painel de comentários.
+
+### Visão Geral e Engajamento
+![Dashboard - Visão Geral](Assets/1.png)
+
+### Análise Qualitativa
+![Dashboard - Análise e Comentários](Assets/2.png)
+
+---
+
 ## 🧱 Tecnologias Utilizadas
 
 * Python
 * YouTube Data API v3
 * MySQL
 * Pandas
+* Power BI
 * VSCode
 
----
-
-## 📈 Status do Projeto
-
-⚠️ Este projeto ainda está **em desenvolvimento**.
-
-As funcionalidades principais de coleta e persistência de dados já foram implementadas, e a base de dados está sendo expandida gradualmente para análises mais robustas.
 
 ---
 
-## 🔮 Próximas Funcionalidades
+## 🔮 Próximas Funcionalidades (Evoluções Futuras)
 
-Funcionalidades planejadas:
-
-* 📊 **Análise de Dados e Dashboards**
-
-  * Integração com Power BI para criação de dashboards interativos e análises descritivas
-
-* 🧠 **Análise com Grafos**
-
-  * Construção de grafos a partir dos dados (relações entre vídeos, canais e comentários)
-  * Aplicação de técnicas de **redes complexas**
+Funcionalidades planejadas para expansão:
 
 * 🤖 **Processamento de Linguagem Natural (NLP)**
 
-  * Análise de sentimentos em comentários
-  * Possível desenvolvimento de um chatbot simples baseado nos dados coletados
+  * Análise de sentimentos em comentários
+  * Possível desenvolvimento de um chatbot simples baseado nos dados coletados
 
 * ⚙️ **Melhorias de Escalabilidade**
 
-  * Processamento em lote (batch)
-  * Otimização de inserções no banco
-  * Uso de Docker para facilitar execução e deploy do projeto
+  * Processamento em lote (batch)
+  * Otimização de inserções no banco
+  * Uso de Docker para facilitar execução e deploy do projeto
 
 ---
 
